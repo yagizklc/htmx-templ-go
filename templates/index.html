@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World HTMX Go</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  </head>
+  <body>
+    <div id="container">
+      <p>Hello, world!</p>
+      <button hx-target="#message" hx-get="/update">Update Message</button>
+      <div id="message"></div>
+    </div>
+  </body>
+</html>
