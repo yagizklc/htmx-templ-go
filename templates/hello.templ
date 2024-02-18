@@ -1,0 +1,31 @@
+package templates
+
+var greeting = "Welcome!"
+
+templ Head() {
+	<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+}
+
+templ Header(name string) {
+	<header>
+		<h1>{ name }</h1>
+		<h2>"{ greeting }" comes from ordinary Go code</h2>
+	</header>
+}
+
+templ Hello(name string) {
+	@Head()
+	@Header(name)
+	<div>Hello, { name }</div>
+	@Button("click me " + name)
+}
+
+templ Button(text string) {
+	<button hx-get="/click" hx-target="this" class="button">{ text }</button>
+}
+
+templ ClickResponse(text string) {
+	<div>
+		hi hi { text }
+	</div>
+}
